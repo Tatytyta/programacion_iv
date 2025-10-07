@@ -10,3 +10,4 @@ fun main() {
     val necesitaRevisar = !documentosCompletos || promedio < 7
     println("Cumple con los requisitos de admisión: $esAdmitido")
     println("Necesita revisión adicional: $necesitaRevisar")
+}

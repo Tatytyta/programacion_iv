@@ -4,7 +4,6 @@ fun main() {
     println("¡Calculadora de Promedios de Admisión!")
     println("Ingrese la nota del examen académico:")
     val notaExamen: Int = readLine()?.toIntOrNull() ?: 0
-
     println("Ingrese la nota de la entrevista:")
     val notaEntrevista: Int = readLine()?.toIntOrNull() ?: 0
 
@@ -13,7 +12,6 @@ fun main() {
     println("2. Restar notas (comparar)")
     println("3. Multiplicar (ponderación simulada)")
     println("4. Dividir (promedio simple)")
-
     val operacion: Int = readLine()?.toIntOrNull() ?: 0
 
     when (operacion) {

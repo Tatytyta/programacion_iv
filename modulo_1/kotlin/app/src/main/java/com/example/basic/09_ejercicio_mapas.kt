@@ -1,38 +1,21 @@
 package com.example.basic
 
+//validad de horarios de calses
+       // el alumno ingresa una hora 0:23
+        //si esta entre 7y13"clase en la mañana"
+        //si esta entre 14 y 19 "clase de la tarde"
+        //otro caso "horario lectivo"
 fun main() {
-    println("Mapas")
+    println("Validación de horarios de clases")
 
-    val fuerzaJedis= mapOf(
-        "luke" to 85,
-        "Leia" to 80,
-        "obi-Wan" to 95,
-        "yoda" to 100
-    )
-    println("Fuerza de los Jedis: ${fuerzaJedis}")
+    print("Ingrese la hora (0 - 23): ")
+    val hora: Int = readLine()?.toIntOrNull() ?: -1
 
-    println("mapa mutable")
-    val misionescompletas = mutableMapOf<String, Int>()
-    misionescompletas ["luke"]=15
-    misionescompletas ["Leia"]=15
-    misionescompletas.put("Han",20)
-
-    println("Misiones: ${misionescompletas}")
-
-    for((jedi,fuerza)in fuerzaJedis){
-        println("$jedi tiene nivel de fuerza $fuerza")
+    if (hora in 7..13) {
+        println("Clase en la mañana")
+    } else if (hora in 14..19) {
+        println("Clase en la tarde")
+    } else {
+        println("Fuera del horario lectivo")
     }
-    val planetasVisitados= setOf("Tatooine","Coruscant","Dragobad")
-    println("Panetas visitados: ${planetasVisitados}")
-
-    val planetaspeligrosos = setOf("Mustafar", "Coruscant", "Karriban")
-    println("Panetas peligrosos : ${planetaspeligrosos}")
-
-    println("operaciones de conjuntos")
-    val interseccion = planetaspeligrosos intersect planetasVisitados
-    val union= planetaspeligrosos union planetasVisitados
-    val diferencia = planetaspeligrosos - planetasVisitados
-    println("planetas visitados y peligrosos : ${interseccion}")
-    println("Todos los planetas : ${union}")
-    println("planetas seguros visitados: ${diferencia}")
 }

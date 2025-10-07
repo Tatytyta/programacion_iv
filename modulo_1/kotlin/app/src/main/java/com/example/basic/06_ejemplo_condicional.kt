@@ -1,19 +1,19 @@
 package com.example.basics
 
 fun main() {
-    println("!calculadora!!!")
-    println("!Incluir el primer valor!!!")
-    val value1: Int = readLine()?.toIntOrNull() ?: 0
-    println("!Incluir el segundo valor!!!")
-    val value2: Int = readLine()?.toIntOrNull() ?: 0
-    println("1 suma, 2 resta, 3 multiplicacion, 4 division")
-    val operacion: Int = readLine()?.toIntOrNull() ?: 0
+    println("¡Sistema de Becas!")
 
-    when (operacion) {
-        1 -> println("suma : ${value1 + value2}")
-        2 -> println("resta : ${value1 - value2}")
-        3 -> println("multiplicacion : ${value1 * value2}")
-        4 -> println("division : ${value1 / value2}")
-        else -> println("opcion no válida")
+    print("Ingrese su promedio: ")
+    val promedio: Int = readLine()?.toIntOrNull() ?: 0
+
+    print("¿Usted trabaja? (si / no): ")
+    val trabaja: String = readLine()?.lowercase() ?: "no"
+
+    if (promedio >= 90 && trabaja == "no") {
+        println("Usted tiene derecho a una BECA COMPLETA.")
+    } else if (promedio >= 90 && trabaja == "si") {
+        println("Usted tiene derecho a una BECA PARCIAL.")
+    } else {
+        println("Usted no califica para una beca.")
     }
 }

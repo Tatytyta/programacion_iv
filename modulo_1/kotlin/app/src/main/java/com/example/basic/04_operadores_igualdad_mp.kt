@@ -14,3 +14,4 @@ fun main() {
     println("Igualdad referencial (misma instancia en memoria)")
     println(estudiante1 === estudiante2)
     println(estudiante1 === estudiante3)
+}

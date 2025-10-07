@@ -2,7 +2,7 @@ package com.example.kotlin
 
 fun main() {
     println("¡Estructuras de Control!")
-    println("¡Condicionales en Admisión!")
+    println("¡Condicionales en Admision!")
 
     val nota1 = 8
     val nota2 = 9
@@ -13,11 +13,11 @@ fun main() {
         println("La nota más alta es $nota2")
     }
 
-    println("Evaluación según promedio final")
+    println("Evaluacion según promedio final")
     var promedio: Int = 9
 
     if (promedio >= 9) {
-        println("Admitido con excelencia académica")
+        println("Admitido con excelencia academica")
     } else if (promedio >= 7) {
         println("Admitido")
     } else {

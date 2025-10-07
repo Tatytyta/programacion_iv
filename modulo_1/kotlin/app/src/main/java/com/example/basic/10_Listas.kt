@@ -1,38 +1,44 @@
 package com.example.basic
 
 fun main() {
-    println("Mapas")
+    println("Listas")
+    val inmutableLista: List<Int> = listOf(1, 2, 3)
+    println("Lista inmutabñlle${inmutableLista}")
 
-    val fuerzaJedis= mapOf(
-        "luke" to 85,
-        "Leia" to 80,
-        "obi-Wan" to 95,
-        "yoda" to 100
-    )
-    println("Fuerza de los Jedis: ${fuerzaJedis}")
+    val mutableLista: MutableList<Int> = mutableListOf(4, 5, 6)
+    println("lista mutable ${mutableLista}")
+    mutableLista.add(7)
+    println("lista mutable ${mutableLista}")
+    mutableLista.removeAt(index = 0)
+    println("lista mutable ${mutableLista}")
 
-    println("mapa mutable")
-    val misionescompletas = mutableMapOf<String, Int>()
-    misionescompletas ["luke"]=15
-    misionescompletas ["Leia"]=15
-    misionescompletas.put("Han",20)
+    for (mutable in mutableLista) println(mutable)
+    println("operaciones con mutable List")
 
-    println("Misiones: ${misionescompletas}")
+    val colores = mutableListOf("rojoj", "verde")
+    colores.add("azul")
+    colores += "amarillo"
+    colores.add(index = 1, element = "blanco")
+    println(colores)
+    colores.remove(element= "verde")
+    println(colores)
+    colores.removeAt(index= 0)
+    println(colores)
+    colores[0]="negro"
+    println(colores)
+    colores.clear()
+    println(colores.isEmpty())
 
-    for((jedi,fuerza)in fuerzaJedis){
-        println("$jedi tiene nivel de fuerza $fuerza")
-    }
-    val planetasVisitados= setOf("Tatooine","Coruscant","Dragobad")
-    println("Panetas visitados: ${planetasVisitados}")
+    println("busquedas con mutable List")
+    val nombres= mutableListOf("juan,","luis", "pedro")
+    println(nombres.find { it.startsWith(prefix = "l") })
+    println(nombres.firstOrNull { it.length>4 })
+    println(nombres.any { it.contains(char = 'p') })
+    println(nombres.none{it=="X"})
 
-    val planetaspeligrosos = setOf("Mustafar", "Coruscant", "Karriban")
-    println("Panetas peligrosos : ${planetaspeligrosos}")
-
-    println("operaciones de conjuntos")
-    val interseccion = planetaspeligrosos intersect planetasVisitados
-    val union= planetaspeligrosos union planetasVisitados
-    val diferencia = planetaspeligrosos - planetasVisitados
-    println("planetas visitados y peligrosos : ${interseccion}")
-    println("Todos los planetas : ${union}")
-    println("planetas seguros visitados: ${diferencia}")
+    println("ordenamiento con mutable List")
+    val numerosDessordemados= mutableListOf(8,3,2,4,7,2,7,0,6)
+    println(numerosDessordemados.sorted())
+    println(numerosDessordemados.sortedDescending())
+    println(numerosDessordemados.distinct())
 }

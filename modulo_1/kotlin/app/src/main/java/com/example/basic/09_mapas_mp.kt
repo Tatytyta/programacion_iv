@@ -1,38 +1,40 @@
 package com.example.basic
 
 fun main() {
-    println("Mapas")
+    println("Mapas en el Proceso de Admisión")
 
-    val fuerzaJedis= mapOf(
-        "luke" to 85,
-        "Leia" to 80,
-        "obi-Wan" to 95,
-        "yoda" to 100
+    val puntajeAspirantes = mapOf(
+        "María" to 85,
+        "Carlos" to 78,
+        "Lucía" to 92,
+        "Andrés" to 95
     )
-    println("Fuerza de los Jedis: ${fuerzaJedis}")
+    println("Puntajes de los aspirantes: $puntajeAspirantes")
 
-    println("mapa mutable")
-    val misionescompletas = mutableMapOf<String, Int>()
-    misionescompletas ["luke"]=15
-    misionescompletas ["Leia"]=15
-    misionescompletas.put("Han",20)
+    println("Mapa mutable (documentos entregados)")
+    val documentosEntregados = mutableMapOf<String, Int>()
+    documentosEntregados["María"] = 5
+    documentosEntregados["Carlos"] = 4
+    documentosEntregados.put("Lucía", 6)
 
-    println("Misiones: ${misionescompletas}")
+    println("Documentos entregados: $documentosEntregados")
 
-    for((jedi,fuerza)in fuerzaJedis){
-        println("$jedi tiene nivel de fuerza $fuerza")
+    for ((aspirante, puntaje) in puntajeAspirantes) {
+        println("$aspirante obtuvo un puntaje de $puntaje puntos")
     }
-    val planetasVisitados= setOf("Tatooine","Coruscant","Dragobad")
-    println("Panetas visitados: ${planetasVisitados}")
 
-    val planetaspeligrosos = setOf("Mustafar", "Coruscant", "Karriban")
-    println("Panetas peligrosos : ${planetaspeligrosos}")
+    val carrerasElegidas = setOf("Software", "Diseño", "Marketing")
+    println("Carreras elegidas: $carrerasElegidas")
 
-    println("operaciones de conjuntos")
-    val interseccion = planetaspeligrosos intersect planetasVisitados
-    val union= planetaspeligrosos union planetasVisitados
-    val diferencia = planetaspeligrosos - planetasVisitados
-    println("planetas visitados y peligrosos : ${interseccion}")
-    println("Todos los planetas : ${union}")
-    println("planetas seguros visitados: ${diferencia}")
+    val carrerasDisponibles = setOf("Software", "Administración", "Marketing", "Turismo")
+    println("Carreras disponibles: $carrerasDisponibles")
+
+    println("Operaciones de conjuntos:")
+    val interseccion = carrerasDisponibles intersect carrerasElegidas
+    val union = carrerasDisponibles union carrerasElegidas
+    val diferencia = carrerasDisponibles - carrerasElegidas
+
+    println("Carreras elegidas y disponibles: $interseccion")
+    println("Todas las carreras posibles: $union")
+    println("Carreras disponibles no elegidas: $diferencia")
 }
