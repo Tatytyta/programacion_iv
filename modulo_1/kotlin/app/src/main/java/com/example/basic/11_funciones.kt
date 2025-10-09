@@ -27,6 +27,4 @@ fun main() {
     println(cuadrado(4))
     println(saludoLambda("Juan LUis Guerra"))
 
-
-
 }
