@@ -1,31 +1,30 @@
 package com.example.basic
 
-class FuerzainsuficienteException(message: String) : Exception(message)
-class MisionPeligrosaException( message: String) : Exception(message)
+class PuntajeInsuficienteException(message: String) : Exception(message)
+class PuntajeExcesivoException(message: String) : Exception(message)
 
-fun realizarMision (nivelFuerza:Int,peligromision:Int): String{
+fun evaluarAdmisión(puntaje: Int, dificultadExamen: Int): String {
 
     return try {
         when {
-            nivelFuerza < 30 -> throw FuerzainsuficienteException("Nivel de fuerza muy bajo :${nivelFuerza}")
-            nivelFuerza > 80 -> throw MisionPeligrosaException("Mision extremadaamente peligrosa: ${peligromision}")
+            puntaje < 30 -> throw PuntajeInsuficienteException("Puntaje muy bajo: ${puntaje}")
+            puntaje > 80 -> throw PuntajeExcesivoException("Examen extremadamente difícil: ${dificultadExamen}")
             else -> {
-                "Error inesperado"
+                "Evaluación realizada correctamente. El puntaje es aceptable."
             }
         }
-        } catch (e: FuerzainsuficienteException) {
-            "Error: ${e.message}. Se requiere entrenamiento adicional"
-
-        } catch (e: MisionPeligrosaException) {
-            "Error: ${e.message}. Nivel de peligro ${peligromision}"
-        }catch (e: Exception) {
-            "${e.message}"
-        }finally {
-            "Reporte enviado"
-        }
+    } catch (e: PuntajeInsuficienteException) {
+        "Error: ${e.message}. Se recomienda reforzar los conocimientos"
+    } catch (e: PuntajeExcesivoException) {
+        "Error: ${e.message}. Nivel de dificultad ${dificultadExamen}."
+    } catch (e: Exception) {
+        "Error inesperado: ${e.message}"
+    } finally {
+        println("reporte enviado al sistema de admisiones.")
     }
+}
 
-fun main (){
-    println(realizarMision(nivelFuerza = 20, peligromision = 60))
-    println(realizarMision(nivelFuerza = 100, peligromision = 60))
+fun main() {
+    println(evaluarAdmisión(puntaje = 20, dificultadExamen = 60))
+    println(evaluarAdmisión(puntaje = 100, dificultadExamen = 60))
 }

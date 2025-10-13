@@ -1,35 +1,38 @@
 package com.example.basic
-//enum= objeto donde podemos icluir una
-enum class TipoSable (val color: String, val poder:Int){
-    AZUL(color= "azul", poder= 85) {
-        override fun description ()= "sable tradicional de los Jedi"
+
+// enum = objeto donde podemos incluir una lista de tipos definidos
+enum class TipoCarrera(val area: String, val puntajeMinimo: Int) {
+    TECNOLOGIA(area = "Tecnologia", puntajeMinimo = 80) {
+        override fun description() = "Carrera enfocada en innovacion y desarrollo tecnologico."
     },
-    VERDE(color= "verde", poder= 90) {
-        override fun description ()= "sable de los Jedi consultores"
+    SALUD(area = "Salud", puntajeMinimo = 85) {
+        override fun description() = "Carrera orientada al bienestar y servicio comunitario."
     },
-    ROJO(color= "rojo", poder= 95){
-        override fun description ()= "sable de los sith"
+    ADMINISTRACION(area = "Administración", puntajeMinimo = 75) {
+        override fun description() = "Carrera dedicada a la gestion de recursos y liderazgo organizacional."
     },
-    MORADO(color= "morado", poder= 95){
-        override fun description() = "sable Equilibra luz y oscuridad"
+    DISEÑO(area = "Diseño", puntajeMinimo = 70) {
+        override fun description() = "Carrera que combina creatividad y comunicacion visual."
     };
-    abstract fun description() : String
-    companion object{
-        fun porColor(color: String)= values().find { it.color==color }
+
+    abstract fun description(): String
+    companion object {
+        fun porArea(area: String) = values().find { it.area == area }
     }
 }
-class SableDeLuz(val tipo : TipoSable, val portador: String){
-    fun activar ()="ZZZrum! El sable color ${tipo.color}de ${portador}se enciende"
-    fun info()= "${tipo.description()} - tipo poder ${tipo.poder}"
+class Estudiante(val tipo: TipoCarrera, val nombre: String) {
+    fun inscribirse() = "El estudiante $nombre se ha inscrito en la carrera del area ${tipo.area}."
+    fun info() = "${tipo.description()} - puntaje minimo requerido: ${tipo.puntajeMinimo}"
 }
-fun main (){
-    val sableWindoo = SableDeLuz(TipoSable.MORADO, portador = "windoo")
-    println(sableWindoo)
-    println(sableWindoo.activar())
-    println(sableWindoo.info())
 
-    val sableluke = SableDeLuz(TipoSable.VERDE, portador = "LUKE SKYWALKER")
-    println(sableluke)
-    println(sableluke.activar())
-    println(sableluke.info())
+fun main() {
+    val estudiante1 = Estudiante(TipoCarrera.SALUD, nombre = "Maria loor")
+    println(estudiante1)
+    println(estudiante1.inscribirse())
+    println(estudiante1.info())
+
+    val estudiante2 = Estudiante(TipoCarrera.TECNOLOGIA, nombre = "Juan Puma")
+    println(estudiante2)
+    println(estudiante2.inscribirse())
+    println(estudiante2.info())
 }

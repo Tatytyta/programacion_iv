@@ -1,39 +1,41 @@
 package com.example.basic
 
-data class Jedi (
+data class Aspirante(
     val nombre: String,
     val edad: Int,
-    val nivelFuerza: Int,
-    val maestro: String?= null,
+    val puntajeAdmision: Int,
+    val carreraElegida: String? = null,
 ) {
-    val ragro: String
+    val categoria: String
         get() = when {
-            nivelFuerza >= 90 -> "maestro"
-            nivelFuerza >= 70 -> "caballero"
-            nivelFuerza >= 50 -> "Pandawan"
-            else -> {
-                "iniciado"
-            }
+            puntajeAdmision >= 90 -> "Admitido con excelencia"
+            puntajeAdmision >= 70 -> "Admitido"
+            puntajeAdmision >= 50 -> "En lista de espera"
+            else -> "No admitido"
         }
-
-    fun puedeEnseniar(): Boolean = nivelFuerza >= 70
-    fun entrenar(): Boolean = edad <= 5
-
+    fun puedeObtenerBeca(): Boolean = puntajeAdmision >= 85
+    fun puedeInscribirse(): Boolean = edad >= 17
 }
-fun main (){
-    val luke = Jedi( nombre="Anakin Skywalker",
-        edad = 25,
-        nivelFuerza = 75,
-        maestro = "Obiwan kenobi")
-    println(luke)
-    // descentralizacion de un objeto
-    val (nombre,edad,nivelFuerza,maestro) = luke
-    println("Nombre del Jedi ${nombre}, edad: ${edad}, nivel de fuerza: ${nivelFuerza}")
-// copiar objetos
-    val ashoka = luke.copy(nombre = "ahsoka", nivelFuerza =80)
-    println(ashoka)
-    //propiedades calculada
-    println("rango de ashoka: ${ashoka.ragro}")
-    println("ashoca puede enseniar ${ashoka.puedeEnseniar()}")
 
+fun main() {
+    val aspirante1 = Aspirante(
+        nombre = "Maria Loor",
+        edad = 18,
+        puntajeAdmision = 78,
+        carreraElegida = "Desarrollo de Software"
+    )
+    println(aspirante1)
+
+    // desestructuración del objeto
+    val (nombre, edad, puntajeAdmision, carreraElegida) = aspirante1
+    println("Nombre de aspirante: $nombre, Edad: $edad, Puntaje de admision: $puntajeAdmision, Carrera: $carreraElegida")
+
+    // Copiar objeto
+    val aspirante2 = aspirante1.copy(nombre = "Juan Puma", puntajeAdmision = 92)
+    println(aspirante2)
+
+    // Propiedades calculadas
+    println("Categoria de aspirante ${aspirante2.nombre}: ${aspirante2.categoria}")
+    println("${aspirante2.nombre} puede obtener beca: ${aspirante2.puedeObtenerBeca()}")
+    println("${aspirante2.nombre} puede inscribirse: ${aspirante2.puedeInscribirse()}")
 }
