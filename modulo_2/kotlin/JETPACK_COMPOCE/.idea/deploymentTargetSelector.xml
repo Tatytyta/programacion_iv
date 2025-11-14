@@ -5,19 +5,19 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainLista (1)">
+      <SelectionState runConfigName="MainStatsExercises (4)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainEditable">
+      <SelectionState runConfigName="MainTravelExercises">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainEditable (1)">
+      <SelectionState runConfigName="MainTravelExercises (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainNavigation">
+      <SelectionState runConfigName="MainTravelExercises (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainNavigation (1)">
+      <SelectionState runConfigName="MainTravelExercises (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
