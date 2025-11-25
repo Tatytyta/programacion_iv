@@ -132,12 +132,7 @@ fun DetailScreen(id: Int, nombre: String, onBack: () -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-@Preview
-fun PreviewHome() {
-    HomeAdmissionScreen(
-        nav = TODO()
-    )
-}
+private fun PreviewHome() { MaterialTheme { HomeScreen { _, _ -> } } }
 
 @Preview(showBackground = true)
 @Composable
